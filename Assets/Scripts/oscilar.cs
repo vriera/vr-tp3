@@ -11,7 +11,7 @@ public class oscilar : MonoBehaviour
     public Transform centro;
     private float xv , yv  , zv;
     private float xa , ya , za;
- 
+    public float maxAmplitude = 10;
     void Start(){
         Roll();
         inicialPos = transform.position;
@@ -29,15 +29,15 @@ public class oscilar : MonoBehaviour
     void Roll(){
         float direction = Random.Range(-1.0f , 1.0f);
         direction = direction / Mathf.Abs(direction);
-        xa = Random.Range(2 , 6) * direction;
+        xa = Random.Range(2 ,maxAmplitude) * direction;
         xv = Random.Range(0.2f , 0.5f)/2;
         direction = Random.Range(-1.0f , 1.0f);
         direction = direction / Mathf.Abs(direction);
-        ya = Random.Range(2 , 6) * direction;
+        ya = Random.Range(2 , maxAmplitude) * direction;
         yv = Random.Range(0.2f , 0.5f)/2;
         direction = Random.Range(-1.0f , 1.0f);
         direction = direction / Mathf.Abs(direction);
-        za = Random.Range(2 , 6) * direction;
+        za = Random.Range(2 , maxAmplitude) * direction;
         zv = Random.Range(0.2f , 0.5f)/2;
     }
     

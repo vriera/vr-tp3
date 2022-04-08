@@ -10,6 +10,7 @@ namespace PathCreation {
             public PathCreator pathCreator;
             public float speed = 5;
             public float distanceTraveled;
+            private WallGenerator WallGenerator;
             VertexPath path;
             //Creacion de camino
             private Vector3[] puntos = new Vector3[100];
@@ -23,7 +24,8 @@ namespace PathCreation {
                 {
                     distanceTraveled += speed * Time.deltaTime;
                     transform.position = path.GetPointAtDistance(distanceTraveled);
-                  
+                    transform.rotation = path.GetRotationAtDistance(distanceTraveled);
+                    WallGenerator.renderNext( 1 , distanceTraveled );
                 }
             
             
@@ -36,7 +38,7 @@ namespace PathCreation {
                 RandomShift xshift = new RandomShift(5 , 1F , 1F , 5F , 0.3F);
                 RandomShift yshift = new RandomShift(5 , 1F , 1F , 5F , 0.3F);
                 for(int i = 0 ; i < 100 ; i++){
-                   puntos[i] = lastPoint + new Vector3(xshift.GetShift(i)*100 , yshift.GetShift(i)*100 , i);      
+                   puntos[i] = lastPoint + new Vector3(xshift.GetShift(i)*100 , yshift.GetShift(i)*100 , i *10);      
                 }
                 GameObject go = new GameObject();
                 // Create a new bezier path from the waypoints.
