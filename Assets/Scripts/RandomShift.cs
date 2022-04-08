@@ -19,9 +19,9 @@ namespace PathCreation {
                 }
             }
             public float GetShift(float time){
-                float shift = Mathf.Sin(Mathf.PI * speeds[0] *time ) ;
+                float shift = Mathf.Sin(Mathf.PI * 2 * speeds[0] *time ) ;
                 for(int i = 1 ; i < levels ; i++){
-                    shift+= Mathf.Sin(Mathf.PI * speeds[i] *time) / (i*decay);
+                    shift+= Mathf.Sin(Mathf.PI * 2* speeds[i] *time) / (i*decay);
                 }
                 return shift;
             }
