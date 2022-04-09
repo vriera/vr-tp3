@@ -25,7 +25,7 @@ namespace PathCreation {
             public float weight_x = 100;
             public float weight_y = 100;
             public float weight_z = 10;
-
+        public int spacing = 1;
             VertexPath path;
             //Creacion de camino
             // Start is called before the first frame update
@@ -60,7 +60,7 @@ namespace PathCreation {
             // Create a new bezier path from the waypoints.
             BezierPath bPath = new BezierPath (puntos, false, PathSpace.xyz);
             path = new VertexPath(bPath ,go.transform, 1);
-            WallGenerator generator = new WallGenerator(wall , path , 7);
+            WallGenerator generator = new WallGenerator(wall , path , spacing);
             return path;
         }
     
