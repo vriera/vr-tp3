@@ -10,7 +10,7 @@ namespace PathCreation {
             public float speed = 5;
             public float distanceTraveled;
             private WallGenerator generator;
-
+        public Transform sangre;
             public int cant_puntos = 500;
             private Vector3[] puntos; 
 
@@ -38,12 +38,13 @@ namespace PathCreation {
                     distanceTraveled += speed * Time.deltaTime;
                     transform.position = path.GetPointAtDistance(distanceTraveled);
                     transform.rotation = path.GetRotationAtDistance(distanceTraveled);
-                   // generator.renderNext( 1 , distanceTraveled );
-                }
-          
+            sangre.rotation = path.GetRotationAtDistance(distanceTraveled) * Quaternion.Euler(new Vector3(0, -90, 0));
+            // generator.renderNext( 1 , distanceTraveled );
+        }
 
 
-     
+
+
         // Start is called before the first frame update
 
         public VertexPath GenerarCamino(){
